@@ -1,4 +1,4 @@
-from main import calculate_floor, create_one_string
+from main import calculate_floor, create_one_string, which_position_to_basement
 
 
 def test_calculate_floor_valid():
@@ -35,3 +35,13 @@ def test_create_one_string():
     data = ['))', '(()', '()']
     res = create_one_string(data)
     assert res == '))(()()'
+
+
+def test_which_position_to_basement():
+    res = which_position_to_basement(')')
+    assert res == 1
+
+
+def test_which_position_to_basement2():
+    res = which_position_to_basement('()())')
+    assert res == 5

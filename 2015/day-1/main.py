@@ -21,7 +21,21 @@ def calculate_floor(brackets: str) -> int:
     return score
 
 
+def which_position_to_basement(brackets: str) -> int:
+    """returns the position when he enters floor -1."""
+    current = 0
+    position = 0
+    while current >= 0:
+        if brackets[position] == ')':
+            current -= 1
+        else:
+            current += 1
+        position += 1
+    return position
+
+
 if __name__ == "__main__":
     data = open_data('data.txt')
     data = create_one_string(data)
     print(calculate_floor(data))
+    print(which_position_to_basement(data))
